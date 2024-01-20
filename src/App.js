@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import './app.css';
 import InfoPage from './components/InfoPage';
+import MeetingsPage from './components/MeetingsPage';
 
 export const pages = {
 	info: 'info',
@@ -19,7 +21,11 @@ const App = () => {
 				</p>
 			</div>
 			<div className="desktop">
-				<InfoPage />
+				{currentPage === pages.info ? (
+					<InfoPage changePage={setCurrentPage} />
+				) : (
+					<MeetingsPage changePage={setCurrentPage} />
+				)}
 			</div>
 		</div>
 	);
